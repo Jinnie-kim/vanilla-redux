@@ -36,7 +36,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     // function을 만들어 props로 전달하고 있음.
-    addToDo: (text) => dispatch(actionCreators.addTodo(text)),
+    addToDo: (text) => dispatch(actionCreators.addToDo(text)),
   };
 }
 
