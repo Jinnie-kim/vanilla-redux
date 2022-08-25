@@ -1,5 +1,5 @@
 import { legacy_createStore } from 'redux';
-import { createAction, createReducer } from '@reduxjs/toolkit';
+import { configureStore, createAction, createReducer } from '@reduxjs/toolkit';
 
 const addToDo = createAction('ADD');
 const deleteToDo = createAction('DELETE');
@@ -19,10 +19,11 @@ const reducer = createReducer([], {
   [addToDo]: (state, action) => {
     state.push({ text: action.payload, id: Date.now() });
   },
-  [deleteToDo]: (state, action) => state.filter((toDo) => toDo.id !== action.payload),
+  [deleteToDo]: (state, action) =>
+    state.filter((toDo) => toDo.id !== action.payload),
 });
 
-const store = legacy_createStore(reducer);
+const store = configureStore({ reducer });
 
 export const actionCreators = {
   addToDo,
