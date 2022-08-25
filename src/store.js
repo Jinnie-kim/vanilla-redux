@@ -9,7 +9,7 @@ const reducer = (state = [], action) => {
     case addToDo.type:
       return [{ text: action.payload, id: Date.now() }, ...state];
     case deleteToDo.type:
-      return state.filter((toDo) => toDo.id !== action.id);
+      return state.filter((toDo) => toDo.id !== action.payload);
     default:
       return state;
   }
